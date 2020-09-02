@@ -10,7 +10,11 @@ def scr_info():#屏幕交互
     while True:
         ans=input("开始注册？y or n:")
         if ans=="y":
-            user_dic.update(regist())#更新字典
+            usr_info=regist()
+            if list(usr_info.keys())[0] in list(user_dic.keys()):#判断是否重复注册
+                print("改用户已注册，请重新输入：")
+            else:
+                user_dic.update(usr_info)#更新字典
         elif ans=="n":
             break
         else:
@@ -19,7 +23,7 @@ def scr_info():#屏幕交互
 
 def login(user_dic):#用户登录
     print("只有5次登录机会")
-    for i in range(5,-1,-1):
+    for i in range(5,0,-1):
         name=input("请输入姓名：")
         passwd=input("请输入密码：")
         if user_dic.get(name)==passwd:
