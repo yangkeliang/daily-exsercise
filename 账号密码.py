@@ -5,7 +5,7 @@ def regist():#注册
     user_dic[name]=passwd
     return user_dic
 
-def scr_info():#屏幕交互
+def scr_regist():#屏幕交互注册
     user_dic={}
     while True:
         ans=input("开始注册？y or n:")
@@ -30,11 +30,24 @@ def login(user_dic):#用户登录
             print("登录成功!")
             break
         elif user_dic.get(name)==None:
-            print("无此账号,"+"剩余"+str(i-1)+"次机会")
+            print("无此账号,剩余{}次机会".format(i-1))
         else:
-            print("密码错误,"+"剩余"+str(i-1)+"次机会")
+            print("密码错误,剩余{}次机会".format(i-1))
+
+def scr_login(user_dic):#屏幕交互登录
+    while True:
+        ans=input("是否登录？y or n:")
+        if ans=="y":
+            login(user_dic)
+        elif ans=="n":
+            break
+        else:
+            print("输入错误，请输入y或n：")
 
 if __name__=="__main__":
-    user_dic=scr_info()
-    login(user_dic)
+    user_dic=scr_regist()
+    scr_login(user_dic)
+    
+
+
     
