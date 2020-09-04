@@ -1,15 +1,26 @@
-lr=int(input("请输入利润："))
+def counteven(n):
+    count = 0
+    for i in range(n+1):
+        if i % 2 ==0:
+            count=count+1
+    return count
 
-if lr<=10:
-    s=lr*0.1
-elif lr<=20:
-    s=(lr-10)*0.075+10*0.1
-elif lr<=40:
-    s=(lr-20)*0.05+(20-10)*0.075+10*0.1
-elif lr<=60:
-    s=(lr-40)*0.03+(40-20)*0.05+(20-10)*0.075+10*0.1
-elif lr<=100:
-    s=(lr-60)*0.015+(60-40)*0.03+(40-20)*0.05+(20-10)*0.075+10*0.1
-else:
-    s=(lr-100)*0.01+(100-60)*0.015+(60-40)*0.03+(40-20)*0.05+(20-10)*0.075+10*0.1
-print(s) 
+def yinshu(n):
+    list1=[]
+    for i in range(1,n+1):
+        if n % i ==0:
+            list1.append(i)
+    return list1
+
+def getdic(dic):
+    list1=[]
+    for i in dic.values():
+        if "可亮" in i:
+            list1.append(i)
+    return list1
+
+if __name__=="__main__":
+    print(counteven(1000))
+    print(yinshu(235))
+    print(getdic({"aa":"1可亮","va":"2可亮","ca":"3可亮","da":"1看看","oa":"1此处"}))
+
