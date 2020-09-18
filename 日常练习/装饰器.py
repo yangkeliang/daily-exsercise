@@ -1,7 +1,7 @@
 def oouter(i):
     def outer(fun):
         def inner(*para):
-            print("杨可亮的第{}个函数：".format(i))
+            print("杨可亮的第{}个函数：{}".format(i,fun.__name__))
             fun(*para)
         return inner
     return outer
