@@ -1,1 +1,1 @@
-from fuck import *
+import seleniumtools
